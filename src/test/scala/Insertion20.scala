@@ -7,7 +7,7 @@ import java.util.UUID.randomUUID
 import scala.util.Random
 
 class Insertion20 extends AnyFunSuite {
-  test("insert 1000 records to column_20") {
+  test("insert 10000 records to column_20") {
     var connection: Connection = null
     var stmt: Statement = null
     var pstmt: PreparedStatement = null
@@ -19,7 +19,7 @@ class Insertion20 extends AnyFunSuite {
       pstmt = connection.prepareStatement(
         "INSERT INTO test.column_20 VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
       )
-      for (i <- 1 to 1000) {
+      for (i <- 1 to 10000) {
         pstmt.setString(1, randomUUID().toString)
 
         pstmt.setTimestamp(2, new Timestamp(System.currentTimeMillis))
